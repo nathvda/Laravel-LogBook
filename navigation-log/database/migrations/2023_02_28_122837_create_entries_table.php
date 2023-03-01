@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('entries', function (Blueprint $table) {
             $table->id();
             $table->foreignId('locations_id')->references('id')->on('locations')->onDelete('cascade');
+            $table->string('title');
             $table->text('entry');
             $table->timestamps();
         });
