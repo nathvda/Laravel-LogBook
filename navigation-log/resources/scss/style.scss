@@ -1,0 +1,134 @@
+*{
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+    text-decoration:none;
+    list-style-type: none;
+}
+
+body{
+    background-color:#00324f;
+    color: rgb(103, 163, 193);
+    font-family:inter;
+
+
+    h2{
+        position:sticky;
+        top:0;
+        left:0;
+        right:0;
+        background-color:#00324f;
+        text-align:center;
+        padding:3rem;
+        background-image:linear-gradient(45deg, transparent, rgba(103, 163, 193,0.2));
+        z-index:1000;
+
+    }
+
+    textarea, textarea:focus-within,input{
+        width:100%;
+        resize:vertical;
+        background-color:rgba(0,0,0,0.2);
+        padding:1rem;
+        border:none;
+        color: rgb(103, 163, 193);
+        outline:1px solid rgb(103, 163, 193);
+        font-size:1rem;
+    }
+
+}
+
+.entries__wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 5rem;
+    gap:1rem;
+
+    .entry__block{
+        border: 1px solid rgb(103, 163, 193);
+        padding:2rem;
+        border-radius:0.5rem;
+        background-image:linear-gradient(45deg, transparent, rgba(103, 163, 193,0.2));
+        position:relative;
+        opacity:0;
+
+        .toolbox {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            gap: 1rem;
+            padding:1rem;
+
+            button, a{
+                background:none;
+                border:none;
+                color:white;
+                text-decoration: none;
+            
+            }
+        }
+    }
+}
+
+@for $i from 1 to 200{
+    .entry__block:nth-child(#{$i}){
+        animation:appearing 0.5s forwards;
+        animation-delay: 0.04s * $i;
+    }
+}
+
+.createNew{
+    position:fixed;
+    right:2rem;
+    top:2rem;
+    background-image:linear-gradient(45deg, transparent, rgba(103, 163, 193,0.2));
+    width:2rem;
+    height:2rem;
+    color:white;
+    text-decoration:none;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:4rem;
+    z-index:1001;
+}
+
+#entrypost {
+	width: 80%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+    gap:1rem;
+
+    button{
+        appearance:unset;
+        background-color:transparent;
+        border: 1px solid rgb(103, 163, 193);
+        background-image:linear-gradient(45deg, transparent, rgba(103, 163, 193,0.2));
+        color:white;
+    }
+
+   
+}
+
+.back, .addlocation{
+    color:white;
+}
+
+.tag__location{
+    background-color:rgba(0,0,0,0.2);
+    border-radius:0.2rem;
+    padding:0.2rem;
+    color:white;
+}
+
+@keyframes appearing{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
