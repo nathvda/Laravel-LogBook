@@ -17,13 +17,19 @@
     @if($errors->has('locations_id'))
         <span class="error">{{$errors->first('locations_id')}}</span>
     @endif
+    <label for='user_id'>User</label>
+    <input type="number" name="user_id" id="user_id" value="{{@old('user_id')}}"/>
+    @if($errors->has('user_id'))
+        <span class="error">{{$errors->first('user_id')}}</span>
+    @endif
     <label for="title">Title</label>
-    <input type="text" name="title" id="title"/> 
+    <input type="text" name="title" id="title" value="{{@old('title')}}"/> 
     @if($errors->has('title'))
         <span class="error">{{$errors->first('title')}}</span>
     @endif
     <label for="entry">Content</label>
-    <textarea form="entrypost" id="entry" name="entry">
+    <textarea form="entrypost" id="entry" name="entry" value="{{@old('entry')}}">
+    {{@old('entry')}}
 </textarea>
 @if($errors->has('entry'))
         <span class="error">{{$errors->first('entry')}}</span>

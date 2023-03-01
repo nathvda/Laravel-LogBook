@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateLocationRequest extends FormRequest
+class CreateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,15 +22,11 @@ class CreateLocationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'location' => 'required|unique:locations,location'
+            'name' => 'required|min:5|max:30',
+            'username' => 'required|alpha_num|min:3|max:255|unique:users,username',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8'
         ];
     }
 
-    public function messages(): array
-    {
-        return [
-            'location.required' => "location must be filled",
-            'location.unique' => "location already exists"
-        ];
-    }
 }

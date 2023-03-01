@@ -17,7 +17,11 @@ use App\Http\Controllers\UserController;
 */
 
 /** Entry related routes */
-Route::get('/', [EntryController::class, 'index']);
+Route::get('/', function() {
+    return view('homepage', ['dropdownLocations' => App\Models\Location::get()]);
+})->middleware('guest');
+
+Route::get('/home', [EntryController::class, 'index'])->middleware('auth');
 
 Route::get('/entry/create', [EntryController::class, 'create']);
 
@@ -37,3 +41,7 @@ Route::post('/location/create', [LocationController::class, 'store']);
 Route::get('location/show/{locations}', [LocationController::class, 'show']);
 
 Route::get('user/show/{user}', [UserController::class, 'show']);
+
+Route::get('register', [UserController::class, 'create'])->middleware('guest');
+
+Route::post('register', [UserController::class, 'store'])->middleware('guest');

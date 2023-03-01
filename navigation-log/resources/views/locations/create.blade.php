@@ -5,7 +5,7 @@
         <form class="entrypost" method="POST" action="/location/create">
             @csrf
             <label for="location">Location</label>
-            <input name="location" type="text">
+            <input name="location" type="text" value="{{@old('location')}}">
                 @if($errors->has('location'))
                     <span class="error">{{$errors->first('location')}}</span>
                 @endif

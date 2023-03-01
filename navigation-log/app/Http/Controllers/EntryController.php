@@ -43,8 +43,11 @@ class EntryController extends Controller
         Entry::create([
             'entry' => $request['entry'],
             'locations_id' => $request['locations_id'],
+            'user_id' => $request['user_id'],
             'title' => $request['title']
         ]);
+
+        session()->flash('success', 'your entry has been created');
 
         return redirect('./');
     }
@@ -75,6 +78,7 @@ class EntryController extends Controller
         Entry::find($id)->update([
             'entry' => $request['entry'],
             'locations_id' => $request['locations_id'],
+            'user_id' => $request['user_id'],
             'title' => $request['title']
         ]);
 

@@ -24,7 +24,8 @@ class CreateEntryRequest extends FormRequest
         return [
             'entry' => 'required',
             'locations_id' => 'required|numeric',
-            'title' => 'required'
+            'title' => 'required',
+            'user_id' => 'required|numeric'
         ];
     }
 
@@ -35,6 +36,8 @@ class CreateEntryRequest extends FormRequest
             'locations_id.required' => 'location must be filled',
             'locations_id.numeric' => 'location must be a number',
             'title.required' => 'title must be filled',
+            'user_id.required' => 'userid must be filled',
+            'user_id.numeric' => 'userid must be a number',
         ];
     }
 }

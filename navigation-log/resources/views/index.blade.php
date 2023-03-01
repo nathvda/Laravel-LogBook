@@ -7,10 +7,13 @@
         <input type="text" id="search" name="search" placeholder="find an entry"/>
     </form> 
 
+    @if(session()->has('success'))
+    <div class="success">{{session('success')}}</div>
+    @endif
+
 <div class="pagination">
     {{$entries->links()}}
 </div>
-
 <div class="entries__wrapper">
 
 @if(count($entries) === 0)
@@ -32,7 +35,6 @@ No entries.
         </form>
         <a href="/entry/edit/{{$entry->id}}">Edit</a>
 </span>
-
     </div>
 
 @endforeach
