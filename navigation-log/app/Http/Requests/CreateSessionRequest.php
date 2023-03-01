@@ -22,7 +22,7 @@ class CreateSessionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => 'required|alpha_num|min:3|max:255|unique:users,username',
+            'username' => 'required|alpha_num|min:3|max:255',
             'password' => 'required|min:8'
         ];
     }

@@ -17,8 +17,7 @@
     @if($errors->has('locations_id'))
         <span class="error">{{$errors->first('locations_id')}}</span>
     @endif
-    <label for='user_id'>User</label>
-    <input type="number" name="user_id" id="user_id" value="{{@old('user_id')}}"/>
+    <input style="display:none" type="number" name="user_id" id="user_id" value="{{auth()->user()->id}}"/>
     @if($errors->has('user_id'))
         <span class="error">{{$errors->first('user_id')}}</span>
     @endif

@@ -15,16 +15,21 @@ class SessionController extends Controller
 
     public function store(CreateSessionRequest $request){
 
-        $attributes = $request['data'];
+        $attributes = [
+            'username' => $request['username'],
+            'password' => $request['password']
+        ];
 
         if (!auth()->attempt($attributes)){
             throw ValidationException::withMessages([
-                'email' => 'Your provided email could not be verified']
+                'username' => 'Your provided email could not be verified',
+                'password' => 'Wrong password']
             );
         }
 
         session()->regenerate();
-        return redirect('/')->with('success', 'It\'s been a while, how are you doing ?');
+        session()->flash('success', 'Its been a while, how are you doing ?');
+        return redirect('/');
     
     }
     
