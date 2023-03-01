@@ -13,6 +13,18 @@
         <!-- Styles -->
     </head>
     <body class="antialiased">
+    <button class="mobile__menu_button">NAVIGATION</button>
+    <nav class="mobile__menu">
+    <button class="show">Locations</button>
+    <div id="show__inside">
+        @foreach($dropdownLocations as $location)
+        <a href="/location/show/{{$location->id}}">{{$location->location}}</a>
+        @endforeach
+    </div>
+    </nav>
+    <form method="GET" action="#">
+        <input type="text" id="search" name="search" placeholder="find an entry"/>
+    </form> 
         <main>
         @yield('content')
         </main>

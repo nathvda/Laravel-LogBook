@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Location;
 
 class UserController extends Controller
 {
@@ -36,7 +37,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        return view('/user/index', ['users' => User::with('entries')->find($id)]);
+        return view('/user/index', ['users' => User::find($id), 'dropdownLocations' => Location::get()]);
     }
 
     /**

@@ -12,6 +12,11 @@ class Entry extends Model
 {
     use HasFactory;
 
+    protected $with = [
+        'location',
+        'user'
+    ];
+
     protected $table = 'entries';
 
     protected $fillable = [

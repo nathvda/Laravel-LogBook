@@ -43,7 +43,7 @@ class LocationController extends Controller
      */
     public function show(string $id)
     {
-        return view('/locations/index', ['locations' => Location::with('entries')->find($id)]);
+        return view('/locations/index', ['locations' => Location::find($id), 'dropdownLocations' => Location::get()]);
     }
 
     /**

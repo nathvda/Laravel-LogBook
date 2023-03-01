@@ -12,9 +12,17 @@ class EntryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Entry $entry)
     {
-        return view('index', ['entries' => Entry::with('location')->get()]);
+
+        $entry = Entry::latest();
+
+       if (request('search')){
+        $entry
+            ->where('title', 'like', '%'.request('search').'%')
+            ->orWhere('entry','like', '%'.request('search').'%');
+       }
+        return view('index', ['entries' => $entry->get(), 'dropdownLocations' => Location::get()]);
     }
 
     /**
@@ -22,7 +30,7 @@ class EntryController extends Controller
      */
     public function create()
     {
-        return view('create', ['locations' => Location::get()]);
+        return view('create', ['locations' => Location::get(), 'dropdownLocations' => Location::get()]);
     }
 
     /**
@@ -54,7 +62,7 @@ class EntryController extends Controller
      */
     public function edit(Entry $entry)
     {
-        return view('/edit', ['entry' => $entry, 'locations' => Location::get()]);
+        return view('/edit', ['entry' => $entry, 'locations' => Location::get(), 'dropdownLocations' => Location::get()]);
     }
 
     /**
