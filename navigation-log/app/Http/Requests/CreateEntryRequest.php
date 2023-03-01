@@ -23,7 +23,8 @@ class CreateEntryRequest extends FormRequest
     {
         return [
             'entry' => 'required',
-            'locations_id' => 'required|numeric'
+            'locations_id' => 'required|numeric',
+            'title' => 'required'
         ];
     }
 
@@ -32,7 +33,8 @@ class CreateEntryRequest extends FormRequest
         return [
             'entry.required' => 'entry must be filled',
             'locations_id.required' => 'location must be filled',
-            'locations_id.numeric' => 'location must be a number'
+            'locations_id.numeric' => 'location must be a number',
+            'title.required' => 'title must be filled',
         ];
     }
 }

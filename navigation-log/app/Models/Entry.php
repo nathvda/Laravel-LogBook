@@ -15,6 +15,7 @@ class Entry extends Model
 
     protected $fillable = [
         'entry',
+        'title',
         'locations_id'
     ];
 

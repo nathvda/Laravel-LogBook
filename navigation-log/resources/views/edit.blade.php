@@ -18,6 +18,11 @@
     @if($errors->has('locations_id'))
         <span class="error">{{$errors->first('locations_id')}}</span>
     @endif
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title" value="{{$entry->title}}"/> 
+    @if($errors->has('title'))
+        <span class="error">{{$errors->first('title')}}</span>
+    @endif
     <label for="entry">Contenu</label>
     <textarea form="entrypost" id="entry" name="entry">
     {{$entry->entry}}

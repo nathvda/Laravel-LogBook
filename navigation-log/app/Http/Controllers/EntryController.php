@@ -34,7 +34,8 @@ class EntryController extends Controller
 
         Entry::create([
             'entry' => $request['entry'],
-            'locations_id' => $request['locations_id']
+            'locations_id' => $request['locations_id'],
+            'title' => $request['title']
         ]);
 
         return redirect('./');
@@ -65,7 +66,8 @@ class EntryController extends Controller
 
         Entry::find($id)->update([
             'entry' => $request['entry'],
-            'locations_id' => $request['locations_id']
+            'locations_id' => $request['locations_id'],
+            'title' => $request['title']
         ]);
 
         return redirect('./');
