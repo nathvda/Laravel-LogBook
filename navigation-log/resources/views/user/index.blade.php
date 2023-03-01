@@ -1,9 +1,8 @@
 @extends('app')
-@section('title', 'show a user\'s entries')
+@section('title', $users->name .'\'s entries')
 @section('content')
 
 <a href="/" class="back">← Back</a>
-<h2>Everything by : {{$users->name}}</h2>
 <div class="entries__wrapper">
 @foreach($users->entries as $entry)
 
@@ -12,7 +11,7 @@
         <div class="infoblocks"><span class="date">Créé le : {{$entry->created_at}}</span>
         <span class="date">Modifié le : {{$entry->updated_at}}</span>
         <span class="date">Par : {{$entry->user->name}}</span></div>
-        <p>{{$entry->entry}}</p>
+        <p class="entry__post">{{$entry->entry}}</p>
         <a class="tag__location" href="/location/show/{{$entry->location->id}}">#{{$entry->location->location}}</a>
         <span class="toolbox"><form method="POST" action='/entry/delete/{{$entry->id}}'>
             @csrf

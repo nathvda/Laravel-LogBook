@@ -22,7 +22,7 @@ class LocationController extends Controller
      */
     public function create()
     {
-        return view('/locations/create');
+        return view('/locations/create', ['dropdownLocations' => Location::get()] );
     }
 
     /**
