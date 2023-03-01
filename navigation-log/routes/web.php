@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EntryController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,5 @@ Route::get('/location/create', [LocationController::class, 'create']);
 Route::post('/location/create', [LocationController::class, 'store']);
 
 Route::get('location/show/{locations}', [LocationController::class, 'show']);
+
+Route::get('user/show/{user}', [UserController::class, 'show']);

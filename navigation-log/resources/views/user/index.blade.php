@@ -1,11 +1,11 @@
 @extends('app')
-@section('title', 'show a location\'s log')
+@section('title', 'show a user\'s entries')
 @section('content')
 
 <a href="/" class="back">← Back</a>
-<h2><h2>Everything at : {{$locations->location}}</h2></h2>
+<h2>Everything by : {{$users->name}}</h2>
 <div class="entries__wrapper">
-@foreach($locations->entries as $entry)
+@foreach($users->entries as $entry)
 
 <div class="entry__block">
         <h3>{{$entry->title}}</h3>
