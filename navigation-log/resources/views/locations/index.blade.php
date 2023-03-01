@@ -6,12 +6,13 @@
 <div class="entries__wrapper">
 @foreach($locations->entries as $entry)
 
-    <div class="entry__block">
-        <h3>{{$entry->location->location}}</h3>
-        <a class="tag__location" href="/location/show/{{$entry->location->id}}">#{{$entry->location->location}}</a>
-        <span class="date">Créé le : {{$entry->created_at}}</span>
+<div class="entry__block">
+        <h3>{{$entry->title}}</h3>
+        <div class="infoblocks"><span class="date">Créé le : {{$entry->created_at}}</span>
         <span class="date">Modifié le : {{$entry->updated_at}}</span>
+        <span class="date">Par : {{$entry->user->name}}</span></div>
         <p>{{$entry->entry}}</p>
+        <a class="tag__location" href="/location/show/{{$entry->location->id}}">#{{$entry->location->location}}</a>
         <span class="toolbox"><form method="POST" action='/entry/delete/{{$entry->id}}'>
             @csrf
             @method('delete')

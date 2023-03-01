@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\Location;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Entry extends Model
 {
@@ -16,7 +17,8 @@ class Entry extends Model
     protected $fillable = [
         'entry',
         'title',
-        'locations_id'
+        'locations_id',
+        'user_id'
     ];
 
     public function location() : BelongsTo
@@ -24,5 +26,10 @@ class Entry extends Model
 
         return $this->belongsTo(Location::class, 'locations_id');
 
+    }
+
+    public function user() : BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

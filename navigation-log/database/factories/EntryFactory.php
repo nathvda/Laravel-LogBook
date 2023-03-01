@@ -18,8 +18,9 @@ class EntryFactory extends Factory
     {
         return [
             'locations_id' => fake()->numberBetween(1,5),
+            'user_id' => fake()->numberBetween(1,5),
             'title' => fake()->text(),
-            'entry' => fake()->text()
+            'entry' => fake()->text(3000)
         ];
     }
 }
