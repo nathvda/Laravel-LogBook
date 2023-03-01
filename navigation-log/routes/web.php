@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EntryController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,8 +41,14 @@ Route::post('/location/create', [LocationController::class, 'store']);
 
 Route::get('location/show/{locations}', [LocationController::class, 'show']);
 
-Route::get('user/show/{user}', [UserController::class, 'show']);
+Route::get('user/show/{user}', [UserController::class, 'show'])->middleware('auth');
 
 Route::get('register', [UserController::class, 'create'])->middleware('guest');
 
 Route::post('register', [UserController::class, 'store'])->middleware('guest');
+
+Route::post('logout', [SessionController::class, 'destroy'])->middleware('auth');
+
+Route::get('login', [SessionController::class, 'create'])->middleware('guest');
+
+Route::post('login', [SessionController::class, 'store'])->middleware('guest');
