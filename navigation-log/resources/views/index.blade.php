@@ -6,7 +6,13 @@
 <form method="GET" action="#">
         <input type="text" id="search" name="search" placeholder="find an entry"/>
     </form> 
+
+<div class="pagination">
+    {{$entries->links()}}
+</div>
+
 <div class="entries__wrapper">
+
 @if(count($entries) === 0)
 No entries.
 @else
@@ -31,7 +37,9 @@ No entries.
 
 @endforeach
 @endif
-
+</div>
+<div class="pagination">
+    {{$entries->links()}}
 </div>
 
 @endsection

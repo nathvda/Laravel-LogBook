@@ -22,7 +22,7 @@ class EntryController extends Controller
             ->where('title', 'like', '%'.request('search').'%')
             ->orWhere('entry','like', '%'.request('search').'%');
        }
-        return view('index', ['entries' => $entry->get(), 'dropdownLocations' => Location::get()]);
+        return view('index', ['entries' => $entry->paginate(5), 'dropdownLocations' => Location::get()]);
     }
 
     /**

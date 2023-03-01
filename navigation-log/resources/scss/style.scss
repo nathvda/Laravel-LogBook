@@ -215,3 +215,18 @@ header{
 
     }
 }
+
+.pagination{
+	display: flex;
+
+    li {
+        border: 1px solid #67a3c1;
+        /* padding: 1rem; */
+        height: 2rem;
+        width: 2rem;
+        place-content: center;
+        place-items: center;
+        display: flex;
+    }
+
+}
