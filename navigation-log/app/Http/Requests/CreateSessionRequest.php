@@ -22,8 +22,8 @@ class CreateSessionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => 'required|alpha_num|min:3|max:255',
-            'password' => 'required|min:8'
+            'email' => 'required|email',
+            'password' => 'required'
         ];
     }
 }

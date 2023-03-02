@@ -37,5 +37,8 @@
         <main>
         @yield('content')
         </main>
+        <footer>
+            <p>2023</p>
+        </footer>
     </body>
 </html>

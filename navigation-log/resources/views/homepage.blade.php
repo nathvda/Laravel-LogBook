@@ -1,4 +1,5 @@
 @extends('app')
+@section('title', 'Welcome traveller')
 @section('content')
 
 <div class="links"><a href="register">register</a>

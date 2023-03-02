@@ -1,7 +1,7 @@
 @extends('app')
 @section('title', 'register')
 @section('content')
-    <a href="/entry/create" class="back">← Back</a>
+    <a href="/" class="back">← Back</a>
         <form class="entrypost" method="POST" action="/register">
             @csrf
             <label for="name">name</label>
