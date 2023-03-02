@@ -86,6 +86,9 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        User::find($id)->delete();
+        auth()->logout();
+
+        return redirect('/')->with('success', 'You successfully deleted your account');
     }
 }

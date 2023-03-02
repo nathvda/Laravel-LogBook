@@ -49,6 +49,8 @@ Route::get('edit/{user}', [UserController::class, 'edit'])->middleware('auth');
 
 Route::patch('edit/{user}', [UserController::class, 'update'])->middleware('auth');
 
+Route::post('delete/{user}', [UserController::class, 'destroy'])->middleware('auth');
+
 Route::get('register', [UserController::class, 'create'])->middleware('guest');
 
 Route::post('register', [UserController::class, 'store'])->middleware('guest');
