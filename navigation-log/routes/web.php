@@ -22,24 +22,24 @@ Route::get('/', function() {
     return view('homepage', ['dropdownLocations' => App\Models\Location::get()]);
 })->middleware('guest');
 
-Route::get('/home', [EntryController::class, 'index'])->middleware('auth');
+Route::get('/home', [EntryController::class, 'index'])->middleware('auth')->middleware('auth');
 
-Route::get('/entry/create', [EntryController::class, 'create']);
+Route::get('/entry/create', [EntryController::class, 'create'])->middleware('auth');
 
-Route::get('/entry/edit/{entry:id}', [EntryController::class, 'edit']);
+Route::get('/entry/edit/{entry:id}', [EntryController::class, 'edit'])->middleware('auth');
 
-Route::patch('/entry/edit/{entry:id}', [EntryController::class, 'update']);
+Route::patch('/entry/edit/{entry:id}', [EntryController::class, 'update'])->middleware('auth');
 
-Route::post('/entry/create', [EntryController::class, 'store']);
+Route::post('/entry/create', [EntryController::class, 'store'])->middleware('auth');
 
-Route::delete('/entry/delete/{entry:id}', [EntryController::class, 'destroy']);
+Route::delete('/entry/delete/{entry:id}', [EntryController::class, 'destroy'])->middleware('auth');
 
 /**Location related routes */
-Route::get('/location/create', [LocationController::class, 'create']);
+Route::get('/location/create', [LocationController::class, 'create'])->middleware('auth');
 
-Route::post('/location/create', [LocationController::class, 'store']);
+Route::post('/location/create', [LocationController::class, 'store'])->middleware('auth');
 
-Route::get('location/show/{locations}', [LocationController::class, 'show']);
+Route::get('location/show/{locations}', [LocationController::class, 'show'])->middleware('auth');
 
 Route::get('user/show/{user}', [UserController::class, 'show'])->middleware('auth');
 
@@ -51,4 +51,4 @@ Route::post('logout', [SessionController::class, 'destroy'])->middleware('auth')
 
 Route::get('login', [SessionController::class, 'create'])->middleware('guest');
 
-Route::post('login', [SessionController::class, 'store']);
+Route::post('login', [SessionController::class, 'store'])->middleware('guest');

@@ -3,7 +3,7 @@
 
 @section('content')
 <a href="/" class="back">← Back</a>
-<form id="entrypost" method="POST" action="/entry/create">
+<form id="form-body" method="POST" action="/entry/create">
     @csrf
     <label for="locations_id">Location <a href="/location/create" class="addlocation">Add a new location?</a></label> 
     <select id="locations_id" type="text" name="locations_id"/>

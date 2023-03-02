@@ -2,7 +2,7 @@
 @section('title', 'register')
 @section('content')
     <a href="/" class="back">← Back</a>
-        <form class="entrypost" method="POST" action="/register">
+        <form id="form-body" method="POST" action="/register">
             @csrf
             <label for="name">name</label>
             <input name="name" type="text" value="{{@old('name')}}">

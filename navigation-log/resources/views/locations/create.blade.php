@@ -2,7 +2,7 @@
 @section('title', 'add a location')
 @section('content')
     <a href="/entry/create" class="back">← Back</a>
-        <form class="entrypost" method="POST" action="/location/create">
+        <form id="form-body" method="POST" action="/location/create">
             @csrf
             <label for="location">Location</label>
             <input name="location" type="text" value="{{@old('location')}}">

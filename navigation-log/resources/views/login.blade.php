@@ -2,7 +2,7 @@
 @section('title', 'login page')
 @section('content')
 <a href="/" class="back">← Back</a>
-<form method="post" action="/login">
+<form id="form-body" method="post" action="/login">
     @csrf
     <label for="email">email</label>
     <input type="text" name="email"/>
@@ -10,7 +10,7 @@
         <span class="error"> {{ $errors->first('email')}}</span>
     @endif
     <label for="password">password</label>
-    <input type="text" name="password"/>
+    <input type="password" name="password"/>
     @if($errors->has('password'))
         <span class="error"> {{ $errors->first('password')}}</span>
     @endif

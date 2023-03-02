@@ -3,7 +3,7 @@
 
 @section('content')
 <a href="/">← Back</a>
-<form id="entrypost" method="POST" action="/entry/edit/{{$entry->id}}">
+<form id="form-body" method="POST" action="/entry/edit/{{$entry->id}}">
     @csrf
     @method('patch')
     <label for="locations_id">Location <a href="/location/create" class="addlocation">Add a new location?</a></label> 
