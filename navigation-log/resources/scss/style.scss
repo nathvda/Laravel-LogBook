@@ -69,9 +69,14 @@ body{
         position:relative;
         opacity:0;
 
+        .entry__avatar{
+            align-self:center;
+        }
+
         .avatar--small {
-            width: 2rem;
-            height: 2rem;
+            width: 5rem;
+            height: 5rem;
+            
             border-radius: 100%;
             border: -0.9rem #67a3c1 solid;
         }
@@ -172,7 +177,6 @@ body{
         background-color:rgba(0,0,0,0.2);
         padding:0.2rem;
         border-radius:0.2rem;
-        width:fit-content;
     }
 }
 
@@ -315,13 +319,71 @@ header {
 }
 
 .category__button {
-	padding: 1rem;
+	padding: 0.4rem 1.1rem;
 	border: 1px solid;
 	width: fit-content;
-	border-radius: 51rem;
+	border-radius: 0.5rem;
 }
 
 .categories {
 	display: flex;
 	gap: 0.7rem;
+}
+
+.entry__content {
+	display: flex;
+    flex-direction:column-reverse;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1rem;
+}
+
+.entry__post {
+	flex-grow: 1;
+	border-top: 0.1rem solid;
+}
+
+.entry__username{
+    font-family:"playfair display";
+    font-size:1.3rem;
+    align-self:center;
+}
+
+.entry__username::before{
+    content:'@';
+}
+
+.entry__block h3 {
+	border: 1px solid rgba(255,255,255,0.1);
+	padding: 1rem;
+	border-radius: 0.5rem;
+	box-shadow: inset rgba(0,0,0,0.2) 0 0 45px;
+}
+
+
+
+@media screen AND (min-width:800px){
+    .entry__content{
+        flex-direction:row;
+
+    }
+
+    .entries__wrapper{
+        max-width:1000px;
+        align-self:center;
+    }
+
+    .entry__post{
+        border-right: 0.1rem solid;
+        border-top:none;
+        width:15%;
+        padding: 0 2rem 0 0;
+    }
+
+    .pagination {
+        display: flex;
+        width: 50%;
+        justify-content: center;
+        margin: auto;
+    }
 }

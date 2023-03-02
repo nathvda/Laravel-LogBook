@@ -20,6 +20,10 @@
     @if($errors->has('email'))
         <span class="error">{{$errors->first('email')}}</span>
     @endif
+    <input style="display:none" type="number" name="user_id" id="user_id" value="{{auth()->user()->id}}"/>
+    @if($errors->has('user_id'))
+        <span class="error">{{$errors->first('user_id')}}</span>
+    @endif
     <label for="avatar">Avatar</label>
     <input type="text" id="avatar" name="avatar" value="{{$user->avatar}}"/>
     @if($errors->has('avatar'))
