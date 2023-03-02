@@ -24,6 +24,7 @@ My name is Nathalie and I am an Junior Web Developer. I have been learning Larav
 - - First version. Added possibility to add entries and select a location for your entry.
 - - Added page displaying posts by location.
 - - Added a search bar (looks up for searched term anywhere in the post or title).
+- - Added authentification.
 
 ## Installation 
 

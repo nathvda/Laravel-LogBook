@@ -43,6 +43,8 @@ Route::get('location/show/{locations}', [LocationController::class, 'show'])->mi
 
 Route::get('user/show/{user}', [UserController::class, 'show'])->middleware('auth');
 
+Route::get('viewprofile', [UserController::class, 'index'])->middleware('auth');
+
 Route::get('register', [UserController::class, 'create'])->middleware('guest');
 
 Route::post('register', [UserController::class, 'store'])->middleware('guest');

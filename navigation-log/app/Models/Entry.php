@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\Location;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Models\Category;
+use App\Models\User;
 
 class Entry extends Model
 {
@@ -14,7 +16,8 @@ class Entry extends Model
 
     protected $with = [
         'location',
-        'user'
+        'user',
+        'category'
     ];
 
     protected $table = 'entries';
@@ -36,5 +39,11 @@ class Entry extends Model
     public function user() : BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function category() : BelongsTo{
+
+        return $this->belongsTo(Category::class, 'category_id');
+
     }
 }
