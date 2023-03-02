@@ -25,10 +25,12 @@ No entries.
         <h3>{{$entry->title}}</h3>
         
         <div class="infoblocks">
-        <div class="category__button">{{$entry->category->name}}</div>
+        <div class="categories">@foreach($entry->category as $cat)
+        <div class="category__button">{{$cat->name}}</div>
+        @endforeach</div>
             <span class="date">Créé le : {{$entry->created_at->diffForHumans()}}</span>
         <span class="date">Modifié le : {{$entry->updated_at->diffForHumans()}}</span>
-        <span class="date">Par : <a href="/user/show/{{$entry->user->id}}">{{$entry->user->name}}</a></span></div>
+        <span class="date">Par : <a href="/user/show/{{$entry->user->id}}">{{$entry->user->name}}</a><a href="/viewprofile/{{$entry->user->id}}"/><img class="avatar--small" src="/images/{{$entry->user->avatar}}"></a></span></div>
         <p class="entry__post">{{$entry->entry}}</p>
         <a class="tag__location" href="/location/show/{{$entry->location->id}}">#{{$entry->location->location}}</a>
         <span class="toolbox"><form method="POST" action='/entry/delete/{{$entry->id}}'>

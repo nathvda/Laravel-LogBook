@@ -26,7 +26,8 @@ class Entry extends Model
         'entry',
         'title',
         'locations_id',
-        'user_id'
+        'user_id',
+        'category_id'
     ];
 
     public function location() : BelongsTo
@@ -41,9 +42,9 @@ class Entry extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function category() : BelongsTo{
+    public function category() : BelongsToMany{
 
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsToMany(Category::class, 'entries_category','entry_id','category_id');
 
     }
 }

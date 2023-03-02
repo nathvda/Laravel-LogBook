@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Entry;
+use App\Models\Category;
+use App\Models\Location;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateEntryRequest;
-use App\Models\Entry;
-use App\Models\Location;
+use App\Models\EntryCategory;
 
 class EntryController extends Controller
 {
@@ -30,7 +32,7 @@ class EntryController extends Controller
      */
     public function create()
     {
-        return view('create', ['locations' => Location::get(), 'dropdownLocations' => Location::get()]);
+        return view('create', ['locations' => Location::get(), 'categories' => Category::get(), 'dropdownLocations' => Location::get()]);
     }
 
     /**
@@ -40,11 +42,19 @@ class EntryController extends Controller
 
     {
 
-        Entry::create([
+        $info =  Entry::create([
             'entry' => $request['entry'],
             'locations_id' => $request['locations_id'],
             'user_id' => $request['user_id'],
+            'category_id' => $request['category_id'],
             'title' => $request['title']
+        ]);
+
+        $info->save;
+
+        EntryCategory::create([
+            'entry_id' => $info->id,
+            'category_id' => $request['category_id']
         ]);
 
         session()->flash('success', 'your entry has been created');
@@ -79,6 +89,7 @@ class EntryController extends Controller
             'entry' => $request['entry'],
             'locations_id' => $request['locations_id'],
             'user_id' => $request['user_id'],
+            'category_id' => $request['category_id'],
             'title' => $request['title']
         ]);
 

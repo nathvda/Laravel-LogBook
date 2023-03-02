@@ -25,7 +25,8 @@ class CreateEntryRequest extends FormRequest
             'entry' => 'required',
             'locations_id' => 'required|numeric',
             'title' => 'required',
-            'user_id' => 'required|numeric'
+            'user_id' => 'required|numeric',
+            'category_id' => 'required|numeric'
         ];
     }
 
@@ -38,6 +39,8 @@ class CreateEntryRequest extends FormRequest
             'title.required' => 'title must be filled',
             'user_id.required' => 'userid must be filled',
             'user_id.numeric' => 'userid must be a number',
+            'category_id.required' => 'category_id must be filled',
+            'category_id.numeric' => 'category_id must be a number',
         ];
     }
 }
