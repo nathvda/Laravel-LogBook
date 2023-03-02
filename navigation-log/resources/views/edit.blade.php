@@ -27,7 +27,7 @@
     <textarea form="entrypost" id="entry" name="entry">
     {{$entry->entry}}
 </textarea>
-@if($errors->has('entry'))
+    @if($errors->has('entry'))
         <span class="error">{{$errors->first('entry')}}</span>
     @endif
 <button id="sendform" type="submit" value="submit">Envoyer</button>

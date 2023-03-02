@@ -43,7 +43,11 @@ Route::get('location/show/{locations}', [LocationController::class, 'show'])->mi
 
 Route::get('user/show/{user}', [UserController::class, 'show'])->middleware('auth');
 
-Route::get('viewprofile', [UserController::class, 'index'])->middleware('auth');
+Route::get('viewprofile/{user}', [UserController::class, 'index'])->middleware('auth');
+
+Route::get('edit/{user}', [UserController::class, 'edit'])->middleware('auth');
+
+Route::patch('edit/{user}', [UserController::class, 'update'])->middleware('auth');
 
 Route::get('register', [UserController::class, 'create'])->middleware('guest');
 

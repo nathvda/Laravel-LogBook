@@ -6,15 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Location;
 use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\ModifyUserRequest;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(string $id)
     {
-        return view('user/profile', ['dropdownLocations' => Location::get()]);
+        return view('user/profile', ['user' => User::find($id), 'dropdownLocations' => Location::get()]);
     }
 
     /**
@@ -58,15 +59,26 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        if(auth()->user()->id != $id){
+            return redirect ("./viewprofile/$id");
+        }
+
+        return view('user/edit', ['user' => User::find($id), 'dropdownLocations' => Location::get()]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ModifyUserRequest $request, string $id)
     {
-        //
+        User::find($id)->update([
+            'name' => $request['name'],
+            'username' => $request['username'],
+            'avatar' => $request['avatar'],
+            'email' => $request['email'],
+        ]);
+
+        return redirect("./viewprofile/$id")->with('success', 'modification effectuée');
     }
 
     /**

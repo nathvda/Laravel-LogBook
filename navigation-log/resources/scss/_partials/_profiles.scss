@@ -1,0 +1,41 @@
+.avatar {
+	width: 9rem;
+	aspect-ratio: 1/1;
+
+    img {
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+        border-radius:18rem;
+    }
+}
+
+.infos {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+    width:80%;
+
+    a {
+        place-self: flex-end;
+    }
+
+    .profile_row {
+        display: flex;
+        background-color: rgba(0,0,0,0.1);
+        padding: 0.7rem;
+        place-content: space-between;
+    }
+}
+
+.maincontent h3 {
+	font-family: 'PlayFair Display';
+	font-size: 3rem;
+}
+
+.maincontent {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
