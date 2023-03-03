@@ -27,8 +27,8 @@
         
         @if(auth()->user()->id === $user->id)
             @foreach( $user->friendRequest($user->id)->get() as $friend)
-            <div class="friendwraps friends__pending">
             <a href="/viewprofile/{{$friend->id}}">
+            <div class="friendwraps friends__pending">
                 <div class="friendbox friendbox--pending">
                     <span class="">{{$friend->name}}</span>
                     <img src="/images/{{$friend->avatar}}" />
@@ -46,22 +46,35 @@
                     @endif
                 </div>  
             </a>
-</div>
+        </div>
+
         @endforeach
+
         <div class="friendwraps friends__waiting">
         @foreach( $user->friendsPending($user->id)->get() as $friend)
         <a href="/viewprofile/{{$friend->id}}">
+
                 <div class="friendbox friendbox--pending">
+
                     <span class="">{{$friend->name}}</span>
+
                     <img src="/images/{{$friend->avatar}}" />
+
                     @if(auth()->user()->id === $user->id)
+
                     <form method="post" action="/disconnect/{{auth()->user()->id}}/{{$friend->id}}">
-                    @csrf
-                    <button type="submit">Cancel invite</button>
+
+                        @csrf
+
+                        <button type="submit">
+                            Cancel invite
+                        </button>
+
                     </form>
+
                     @endif
-                    </div>
-            </a>
+                </div>
+        </a>
 
         @endforeach
         </div>
