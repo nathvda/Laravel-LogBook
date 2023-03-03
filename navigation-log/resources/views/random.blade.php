@@ -12,7 +12,6 @@
     @endif
 
 <div class="entries__wrapper">
-
     <div class="entry__block">
         <h3>{{$entries->title}}</h3>
         

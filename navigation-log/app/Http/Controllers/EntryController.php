@@ -108,7 +108,7 @@ class EntryController extends Controller
 
     public function random(){
 
-        $random = Entry::find(rand(1,count(Entry::get())));
+        $random = Entry::inRandomOrder()->first();
 
         return view('random', ['entries' => $random, 'dropdownLocations' => Location::get()]);
     }
