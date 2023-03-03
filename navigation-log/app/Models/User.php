@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -20,6 +21,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'avatar',
         'username',
         'email',
         'password',
@@ -48,4 +50,22 @@ class User extends Authenticatable
     {
         return $this->hasMany(Entry::class, 'user_id', 'id');
     }
+
+    public function friends(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'friends', 'first_user_id', 'second_user_id');
+    }
+
+    public function morefriends(): BelongsToMany{
+        return $this->belongsToMany(User::class, 'friends', 'second_user_id', 'first_user_id'); 
+    }
+
+    public function friendsaccepted()
+    {
+        $oneway = $this->friends()->get();
+        $otherway = $this->morefriends()->get();
+
+        return $oneway->merge($otherway);
+    }
+
 }

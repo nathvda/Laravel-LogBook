@@ -5,6 +5,7 @@ use App\Http\Controllers\EntryController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\FriendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +61,5 @@ Route::post('logout', [SessionController::class, 'destroy'])->middleware('auth')
 Route::get('login', [SessionController::class, 'create'])->middleware('guest');
 
 Route::post('login', [SessionController::class, 'store'])->middleware('guest');
+
+Route::post('/connect/{user}/{user2}', [FriendController::class, 'store'])->middleware('auth');
