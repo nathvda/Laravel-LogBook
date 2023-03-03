@@ -19,11 +19,11 @@ class EntryController extends Controller
 
         $entry = Entry::latest();
 
-       if (request('search')){
+        if (request('search')){
         $entry
             ->where('title', 'like', '%'.request('search').'%')
             ->orWhere('entry','like', '%'.request('search').'%');
-       }
+        }
         return view('index', ['entries' => $entry->paginate(5), 'dropdownLocations' => Location::get()]);
     }
 

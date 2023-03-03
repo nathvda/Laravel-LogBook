@@ -63,3 +63,9 @@ Route::get('login', [SessionController::class, 'create'])->middleware('guest');
 Route::post('login', [SessionController::class, 'store'])->middleware('guest');
 
 Route::post('/connect/{user}/{user2}', [FriendController::class, 'store'])->middleware('auth');
+
+Route::post('/disconnect/{user}/{user2}', [FriendController::class, 'destroy'])->middleware('auth');
+
+Route::post('/decline/{user}/{user2}', [FriendController::class, 'decline'])->middleware('auth');
+
+Route::post('/accept/{user}/{user2}', [FriendController::class, 'update'])->middleware('auth');

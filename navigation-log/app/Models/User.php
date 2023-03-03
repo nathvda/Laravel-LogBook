@@ -60,12 +60,36 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'friends', 'second_user_id', 'first_user_id'); 
     }
 
+    public function friendRequest($id){
+
+        $friends =  $this->morefriends()->where('accepted', false);
+        return $friends->where('second_user_id', $id)->distinct();
+
+    }
+
+    public function friendsPending($id){
+
+        $friends =  $this->friends()->where('accepted', false);
+        return $friends->where('first_user_id', $id)->distinct();
+
+    }
+
     public function friendsaccepted()
     {
-        $oneway = $this->friends()->get();
-        $otherway = $this->morefriends()->get();
+        $oneway = $this->friends()->where('accepted', true)->get();
+        $otherway = $this->morefriends()->where('accepted', true)->get();
 
         return $oneway->merge($otherway);
+    }
+
+    public function isRequested($id){
+        $stuff = $this->friends->where('first_user_id', $id);
+
+        if (count($stuff) != 0){
+            return "true";
+        } 
+
+        return "false";
     }
 
 }

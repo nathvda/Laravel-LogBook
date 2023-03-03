@@ -38,4 +38,17 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+    gap:1rem;
+}
+
+.deleteAccount {
+	background-color: #00000030;
+	color: #ff2a2a;
+	padding: 1rem;
+	border: 1px solid red;
+	border-radius: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 11rem;
 }
