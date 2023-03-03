@@ -46,6 +46,7 @@ class EntryController extends Controller
             'entry' => $request['entry'],
             'locations_id' => $request['locations_id'],
             'user_id' => $request['user_id'],
+            'category_id' => $request['category_id'],
             'title' => $request['title']
         ]);
 
@@ -74,7 +75,7 @@ class EntryController extends Controller
      */
     public function edit(Entry $entry)
     {
-        return view('/edit', ['entry' => $entry, 'locations' => Location::get(), 'categories' => Category::get(), 'dropdownLocations' => Location::get()]);
+        return view('/edit', ['entry' => $entry, 'locations' => Location::get(), 'dropdownLocations' => Location::get()]);
     }
 
     /**
@@ -88,6 +89,7 @@ class EntryController extends Controller
             'entry' => $request['entry'],
             'locations_id' => $request['locations_id'],
             'user_id' => $request['user_id'],
+            'category_id' => $request['category_id'],
             'title' => $request['title']
         ]);
 
