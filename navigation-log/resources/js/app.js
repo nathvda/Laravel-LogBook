@@ -12,3 +12,11 @@ document.querySelector('.mobile__menu_button').addEventListener('click', (e) => 
 
     document.querySelector('.mobile__menu_button + .mobile__menu').classList.toggle('opening');
 });
+
+let entryBox = document.getElementById('entry');
+
+entryBox.addEventListener('keypress', (e) => {
+    document.getElementById('wordCounter').textContent = `${entryBox.value.split(' ').length}`;
+    
+})
+

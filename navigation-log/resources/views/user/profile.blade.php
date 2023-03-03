@@ -1,11 +1,11 @@
 @extends('app')
-@section('title', 'voir le profil')
+@section('title', 'Visit profile : ' . $user->name )
 @section('content')
 
 <a href="/" class="back">← Back</a>
 <div class="maincontent">
     <h3>{{$user->username}}</h3>
-    <h4>Rank</h4>
+    <h4>{{$user->rank}}</h4>
     <div class="avatar"><img src="/images/{{$user->avatar}}" alt="{{$user->username}}" /></div>
 
     <div class="infos">

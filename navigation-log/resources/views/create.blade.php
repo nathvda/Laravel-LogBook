@@ -42,6 +42,7 @@
     <textarea form="form-body" id="entry" name="entry" value="{{@old('entry')}}">
     {{@old('entry')}}
 </textarea>
+<span id="wordCounter" class="wordcounter"></span>
 @if($errors->has('entry'))
         <span class="error">{{$errors->first('entry')}}</span>
     @endif

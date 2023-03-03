@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', 'voir le profil')
+@section('title', 'Visit profile :' . $user->name )
 @section('content')
 
 <form id="form-body" method="post" action="/edit/{{$user->id}}">

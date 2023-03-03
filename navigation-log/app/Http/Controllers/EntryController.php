@@ -103,6 +103,13 @@ class EntryController extends Controller
     {
         Entry::find($id)->delete();
 
-        return redirect('./');
+        return redirect('./')->with('success', 'delete properly');
+    }
+
+    public function random(){
+
+        $random = Entry::find(rand(1,count(Entry::get())));
+
+        return view('random', ['entries' => $random, 'dropdownLocations' => Location::get()]);
     }
 }

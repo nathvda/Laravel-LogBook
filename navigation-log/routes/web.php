@@ -35,6 +35,8 @@ Route::post('/entry/create', [EntryController::class, 'store'])->middleware('aut
 
 Route::delete('/entry/delete/{entry:id}', [EntryController::class, 'destroy'])->middleware('auth');
 
+Route::get('/random',[EntryController::class, 'random'])->middleware('auth');
+
 /**Location related routes */
 Route::get('/location/create', [LocationController::class, 'create'])->middleware('auth');
 
@@ -52,6 +54,8 @@ Route::patch('edit/{user}', [UserController::class, 'update'])->middleware('auth
 
 Route::post('delete/{user}', [UserController::class, 'destroy'])->middleware('auth');
 
+/** Users controllers */
+
 Route::get('register', [UserController::class, 'create'])->middleware('guest');
 
 Route::post('register', [UserController::class, 'store'])->middleware('guest');
@@ -61,6 +65,8 @@ Route::post('logout', [SessionController::class, 'destroy'])->middleware('auth')
 Route::get('login', [SessionController::class, 'create'])->middleware('guest');
 
 Route::post('login', [SessionController::class, 'store'])->middleware('guest');
+
+/** Friends controllers */
 
 Route::post('/connect/{user}/{user2}', [FriendController::class, 'store'])->middleware('auth');
 
