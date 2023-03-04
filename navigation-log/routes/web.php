@@ -81,6 +81,16 @@ Route::post('/accept/{user}/{user2}', [FriendController::class, 'update'])->midd
 
 Route::get('/inbox', [ConversationController::class, 'index'])->middleware('auth');
 
+Route::delete('/inbox', [ConversationController::class, 'leave'])->middleware('auth');
+
+/** Conversations */
+
 Route::get('/conversation/{conversation}', [ConversationController::class, 'show'])->middleware('auth');
 
 Route::post('/conversation/{conversation}', [ConversationController::class, 'store'])->middleware('auth');
+
+Route::get('/new/conversation', [ConversationController::class, 'create'])->middleware('auth');
+
+Route::post('/new/conversation', [ConversationController::class, 'start'])->middleware('auth');
+
+

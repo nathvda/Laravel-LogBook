@@ -20,7 +20,7 @@
         <div class="infoblocks">
         <a href="/viewprofile/{{$entries->user->id}}" class="entry__avatar"/><img class="avatar--small" src="/images/{{$entries->user->avatar}}"></a>
         <a class="entry__username" href="/user/show/{{$entries->user->id}}">{{$entries->user->name}}</a>
-       </span>    
+        </span>    
         <a class="tag__location" href="/location/show/{{$entries->location->id}}">#{{$entries->location->location}}</a>
         <span class="date">Créé le : {{$entries->created_at->diffForHumans()}}</span>
         <span class="date">Modifié le : {{$entries->updated_at->diffForHumans()}}</span>

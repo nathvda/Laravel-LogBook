@@ -2,9 +2,9 @@
 @section('title', 'Inbox')
 @section('content')
     <a href="/" class="back">← Back</a>
-        <h4>Welcome to your conversation log.</h4>
 
         @livewire('conversation-container', ['user' => $user])
             
+        <a class="button__main" href="/new/conversation">Start a new conversation.</a>
 
 @endsection
