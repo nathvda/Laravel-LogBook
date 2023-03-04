@@ -75,7 +75,7 @@ class EntryController extends Controller
      */
     public function edit(Entry $entry)
     {
-        return view('/edit', ['entry' => $entry, 'locations' => Location::get(), 'dropdownLocations' => Location::get()]);
+        return view('/edit', ['entry' => $entry, 'categories' => Category::get(), 'locations' => Location::get(), 'dropdownLocations' => Location::get()]);
     }
 
     /**
@@ -84,13 +84,19 @@ class EntryController extends Controller
     public function update(CreateEntryRequest $request, string $id)
     {
         
-
-        Entry::find($id)->update([
+        dd($request);
+        $info = Entry::find($id)->update([
             'entry' => $request['entry'],
             'locations_id' => $request['locations_id'],
             'user_id' => $request['user_id'],
-            'category_id' => $request['category_id'],
             'title' => $request['title']
+        ]);
+
+        $info->save;
+
+        EntryCategory::create([
+            'entry_id' => $info->id,
+            'category_id' => $request['category_id']
         ]);
 
         return redirect('./');

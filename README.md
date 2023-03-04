@@ -9,6 +9,7 @@ My name is Nathalie and I am an Junior Web Developer. I have been learning Larav
 
 - Laravel (vite)
 - Sass
+- LiveWire
 
 ## Known issues
 
@@ -22,6 +23,7 @@ My name is Nathalie and I am an Junior Web Developer. I have been learning Larav
 
 - 2023-03-04
 - - Added a very simple messaging system.
+- - Using LiveWire to allow for updates.
 
 - 2023-03-03
 - - Added basic friends system.
@@ -40,6 +42,8 @@ My name is Nathalie and I am an Junior Web Developer. I have been learning Larav
 You will need a database to store your entries. You can go to the ```.env``` file and fill it according to your configuration.
 
 - Update ```.env``` file according to your configuration especially the database name except if your create the navigationlog database previously.
+- Run ```composer install``` to install the dependencies.
+- Run ```npm install``` to install the dependencies.
 - Run ```php artisan serve``` to run the project.
 - Run ```npm run dev``` in the project folder.
 - Run the migrations with ```php artisan migrate``` to create the database tables.

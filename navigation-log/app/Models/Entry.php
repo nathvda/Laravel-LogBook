@@ -25,9 +25,9 @@ class Entry extends Model
     protected $fillable = [
         'entry',
         'title',
+        'category_id',
         'locations_id',
-        'user_id',
-        'category_id'
+        'user_id'
     ];
 
     public function location() : BelongsTo

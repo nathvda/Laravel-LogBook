@@ -1,0 +1,25 @@
+.navigation {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	padding: 1rem;
+	align-items: center;
+}
+
+.avatar--nav {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 2rem;
+	object-fit: cover;
+}
+
+.logged_as {
+	display: flex;
+	align-content: space-between;
+	align-items: center;
+	gap: 1rem;
+}
+
+.nav__name{
+    display:none;
+}

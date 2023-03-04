@@ -1,5 +1,7 @@
+@import './_partials/navigation';
 @import './_partials/profiles';
 @import './_partials/friends';
+@import './_partials/conversations';
 @import './_partials/messages';
 
 *{
@@ -49,7 +51,7 @@ body{
         padding:1rem;
         border:none;
         color: rgb(103, 163, 193);
-        outline:1px solid rgb(103, 163, 193);
+        outline: 1px solid rgba(103, 163, 193, 0.15);
         font-size:1rem;
     }
 
@@ -185,31 +187,6 @@ body{
     }
 }
 
-.mobile__menu_button {
-	background-color: rgba(0, 0, 0, 0.2);
-	color: white;
-	padding: 0.4rem;
-	border-radius: 0.5rem;
-	border: 0;
-}
-
-.mobile__menu{
-    display:none;
-    top:1rem;
-}
-
-.mobile__menu.opening{
-    display:flex;
-    flex-direction:column;
-    position:absolute;
-    padding:0.4rem;
-    left:3rem;
-    top:1rem;
-    gap:1rem;
-    z-index:4;
-}
-
-
 .show{
     background-color:rgba(0,0,0,0.2);
     padding:0.2rem;
@@ -304,12 +281,6 @@ header {
 	justify-content: space-between;
     padding:1rem;
 
-    .navigation {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        padding: 1rem;
-    }
 }
 
 .button--dark {
@@ -361,6 +332,7 @@ header {
 .entry__post {
 	flex-grow: 1;
 	border-top: 0.1rem solid;
+    padding-top:1rem;
 }
 
 .entry__username{
