@@ -42,20 +42,22 @@ class EntryController extends Controller
 
     {
 
+
         $info =  Entry::create([
             'entry' => $request['entry'],
             'locations_id' => $request['locations_id'],
             'user_id' => $request['user_id'],
-            'category_id' => $request['category_id'],
             'title' => $request['title']
         ]);
 
         $info->save;
-
-        EntryCategory::create([
+        
+        foreach($request['category_id'] as $category){
+            EntryCategory::create([
             'entry_id' => $info->id,
-            'category_id' => $request['category_id']
-        ]);
+            'category_id' => $category
+            ]);
+        };
 
         session()->flash('success', 'your entry has been created');
 
@@ -84,7 +86,7 @@ class EntryController extends Controller
     public function update(CreateEntryRequest $request, string $id)
     {
         
-        dd($request);
+
         $info = Entry::find($id)->update([
             'entry' => $request['entry'],
             'locations_id' => $request['locations_id'],
@@ -92,12 +94,12 @@ class EntryController extends Controller
             'title' => $request['title']
         ]);
 
-        $info->save;
-
-        EntryCategory::create([
-            'entry_id' => $info->id,
-            'category_id' => $request['category_id']
+    foreach($request['category_id'] as $category) 
+    {   EntryCategory::create([
+            'entry_id' => $id,
+            'category_id' => $category
         ]);
+        }
 
         return redirect('./');
     }

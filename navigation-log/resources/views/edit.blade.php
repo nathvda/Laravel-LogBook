@@ -18,18 +18,15 @@
     @if($errors->has('locations_id'))
         <span class="error">{{$errors->first('locations_id')}}</span>
     @endif
-    <label for="category_id">Category</label> 
-    <select class="selectable" id="category_id" type="text" name="category_id"/>
-    <option name="category_id" value="">Select a category</option>
+    <label for="category_id">Categories</label> 
     @foreach($categories as $category)
-
-    <option name="category_id" value="{{$category->id}}" @if($entry->locations_id === $category->id) selected @endif>{{$category->name}}</option>
+    <input type="checkbox" name="category_id[]" value="{{$category->id}}"/>{{$category->name}}
 
     @endforeach
-</select>
     @if($errors->has('category_id'))
         <span class="error">{{$errors->first('category_id')}}</span>
     @endif
+    <input type="text" style="display:none" name="user_id" id="user_id" value="{{auth()->user()->id}}"/> 
     <label for="title">Title</label>
     <input type="text" name="title" id="title" value="{{$entry->title}}"/> 
     @if($errors->has('title'))

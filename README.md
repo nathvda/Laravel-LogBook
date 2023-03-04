@@ -24,6 +24,7 @@ My name is Nathalie and I am an Junior Web Developer. I have been learning Larav
 - 2023-03-04
 - - Added a very simple messaging system.
 - - Using LiveWire to allow for updates.
+- - Added the possibility to add multiples categories to an entry.
 
 - 2023-03-03
 - - Added basic friends system.
