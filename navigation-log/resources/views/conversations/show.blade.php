@@ -3,6 +3,7 @@
 @section('content')
     <a href="/inbox" class="back">← Back</a>
     <div class="messages__wrapper">
+    @livewire('show-messages')
     @foreach($conversation->messages as $message)
         @if($message->user->id == auth()->user()->id)
         <div class="message message--yours"><div class=""><img class="avatar--messages" src="/images/{{$message->user->avatar}}"></div><div class="message__infos"><p>{{$message->content}}</p><span class="message__date">{{$message->created_at->diffForHumans()}}</span></div></div>
