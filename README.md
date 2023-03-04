@@ -20,6 +20,9 @@ My name is Nathalie and I am an Junior Web Developer. I have been learning Larav
 
 ## Versions 
 
+- 2023-03-04
+- - Added a very simple messaging system.
+
 - 2023-03-03
 - - Added basic friends system.
 - - Added a random post page (gets one entry randomly).
