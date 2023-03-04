@@ -1,0 +1,43 @@
+.messages__wrapper {
+	display: flex;
+	flex-direction: column;
+    gap:0.7rem;
+}
+
+.message {
+	padding: 0.7rem;
+	display: flex;
+    width:fit-content;
+    max-width:350px;
+    gap:1rem;
+
+    p{
+        border-radius: 0.6rem;
+        padding:1rem;
+    }
+}
+
+.message--yours {
+    p{
+        background-color:#0e4362;
+
+
+    }
+
+}
+
+.message--theirs {
+	flex-direction: row-reverse;
+	align-self: flex-end;
+
+    p {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+.avatar--messages {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 2rem;
+	object-fit: cover;
+}

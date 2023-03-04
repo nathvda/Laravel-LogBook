@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EntryController;
-use App\Http\Controllers\LocationController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\SessionController;
+use App\Http\Controllers\EntryController;
 use App\Http\Controllers\FriendController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\ConversationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,3 +76,11 @@ Route::post('/disconnect/{user}/{user2}', [FriendController::class, 'destroy'])-
 Route::post('/decline/{user}/{user2}', [FriendController::class, 'decline'])->middleware('auth');
 
 Route::post('/accept/{user}/{user2}', [FriendController::class, 'update'])->middleware('auth');
+
+/** Messaging controllers */
+
+Route::get('/inbox', [ConversationController::class, 'index'])->middleware('auth');
+
+Route::get('/conversation/{conversation}', [ConversationController::class, 'show'])->middleware('auth');
+
+Route::post('/conversation/{conversation}', [ConversationController::class, 'store'])->middleware('auth');
