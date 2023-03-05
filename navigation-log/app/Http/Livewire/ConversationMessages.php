@@ -40,7 +40,6 @@ class ConversationMessages extends Component
         $this->content = '';
     }
     
-    
     public function render()
     {
         return view('livewire.conversation-messages', ['conversation' => $this->conversation]);

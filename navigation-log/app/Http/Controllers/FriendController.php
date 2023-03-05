@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Friend;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
@@ -23,6 +24,11 @@ class FriendController extends Controller
             'first_user_id' => $id,
             'second_user_id' => $id2
         ]);
+
+        Notification::create([
+            'user_id' => $id2,
+            'notificationtype_id' => 1
+        ]);
     }
 
         return redirect("/viewprofile/$id2")->with('success', 'Request sent');
@@ -34,6 +40,11 @@ class FriendController extends Controller
         ->where('first_user_id', $id2)
         ->where('second_user_id', $id)->update([
             'accepted' => true,
+        ]);
+
+        Notification::create([
+            'user_id' => $id2,
+            'notificationtype_id' => 2
         ]);
 
         return redirect("/viewprofile/$id")->with('success', 'Request accepted');
