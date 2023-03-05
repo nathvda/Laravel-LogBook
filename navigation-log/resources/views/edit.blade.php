@@ -19,13 +19,14 @@
         <span class="error">{{$errors->first('locations_id')}}</span>
     @endif
     <label for="category_id">Categories</label> 
-    @foreach($categories as $category)
-    <input type="checkbox" name="category_id[]" value="{{$category->id}}"/>{{$category->name}}
-
+    <div class="category__wrapper">@foreach($categories as $category)
+    <input class="category__input" type="checkbox" id="category-{{$category->id}}" name="category_id[]" value="{{$category->id}}"/>
+    <label for="category-{{$category->id}}">{{$category->name}}</label> 
     @endforeach
     @if($errors->has('category_id'))
         <span class="error">{{$errors->first('category_id')}}</span>
     @endif
+    </div>
     <input type="text" style="display:none" name="user_id" id="user_id" value="{{auth()->user()->id}}"/> 
     <label for="title">Title</label>
     <input type="text" name="title" id="title" value="{{$entry->title}}"/> 

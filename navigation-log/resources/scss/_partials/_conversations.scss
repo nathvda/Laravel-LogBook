@@ -1,4 +1,62 @@
-.conversations_wrapper {
+.conversation__wrapper {
 	display: flex;
 	flex-direction: column;
+	place-items: center center;
+}
+
+.button__main {
+	background-color: #0f415e;
+	width: 100%;
+	padding: 1em;
+	border-radius: 0.7rem;
+	border: 1px solid #20526F;
+	text-align: center;
+}
+
+.conversation__unique {
+	border: 1px solid #1d4e6c;
+	padding: 1em;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
+.conversation__title {
+	font-size: 1.3rem;
+	border-bottom: 1px solid #1d4e6c;
+	width: 100%;
+	display: block;
+	padding-bottom:1rem;
+}
+
+.conversation_users {
+	font-size: 0.8rem;
+}
+
+.conversation_users a {
+	color: #5C8EAB;
+}
+
+.conversation_users a:hover {
+	color: white;
+}
+
+.friend__conversation {
+	display: none;
+}
+
+.friend__conversation + label {
+	border: 1px solid #2d5060;
+	color:#2d5060;
+}
+
+.friend__conversation:checked + label {
+	border: #37dfc8 1px solid;
+	color:#37dfc8;
+}
+
+.conversation_friendcard{
+	height:8rem;
+	display:block;
 }

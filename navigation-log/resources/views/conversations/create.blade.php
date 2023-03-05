@@ -10,10 +10,9 @@
     <input type="text" value="Untitled Conversation" name="name"/>
     @foreach($friends as $friend)
 
-    <label for="friend-{{$friend->id}}"><img class="avatar--nav" src="/images/{{ $friend->avatar }}"/>
-    <div class="friend__card">
+    <input class="friend__conversation" id="friend-{{$friend->id}}" type="checkbox" name="user_id[]" value="{{$friend->id}}"/>
+    <label class="conversation_friendcard" for="friend-{{$friend->id}}"><img class="avatar--nav" src="/images/{{ $friend->avatar }}"/>
     {{ $friend->name }}
-    <input id="friend-{{$friend->id}}" type="checkbox" name="user_id[]" value="{{$friend->id}}"/>
     </label>
     @endforeach
     <button type="submit">Start talking!</button>

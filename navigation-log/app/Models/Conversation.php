@@ -24,6 +24,6 @@ class Conversation extends Model
 
     public function messages() : HasMany
     {
-        return $this->hasMany(Message::class, 'conversation_id');
+        return $this->hasMany(Message::class, 'conversation_id')->limit(100);
     }
 }

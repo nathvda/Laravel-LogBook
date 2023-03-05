@@ -11,12 +11,13 @@
 
     <div class="conversation__unique">
 
-    <a href="/conversation/{{$conversation->id}}">{{$conversation->name}}</a>
+    <a class="conversation__title" href="/conversation/{{$conversation->id}}">{{$conversation->name}}</a>
 
-    @foreach($conversation->users as $user)
+    <div class="conversation_users">@foreach($conversation->users as $user)
 
     <a href="/viewprofile/{{$user->id}}">{{$user->name}}</a>
     @endforeach
+    </div>
 
     <form method="post" action="/leave/{{$conversation->id}}">
         @csrf

@@ -16,16 +16,18 @@
 </select>
     @if($errors->has('locations_id'))
         <span class="error">{{$errors->first('locations_id')}}</span>
-    @endif
-    <label for="category_id">Category</label> 
+    @endif 
     <label for="category_id">Categories</label> 
+    <div class="category__wrapper">
     @foreach($categories as $category)
-    <input type="checkbox" name="category_id[]" value="{{$category->id}}"/>{{$category->name}}
+    <input class="category__input" type="checkbox" id="category-{{$category->id}}" name="category_id[]" value="{{$category->id}}"/>
+    <label for="category-{{$category->id}}">{{$category->name}}</label> 
 
     @endforeach
     @if($errors->has('category_id'))
         <span class="error">{{$errors->first('category_id')}}</span>
     @endif
+</div>
     <input style="display:none" type="number" name="user_id" id="user_id" value="{{auth()->user()->id}}"/>
     @if($errors->has('user_id'))
         <span class="error">{{$errors->first('user_id')}}</span>

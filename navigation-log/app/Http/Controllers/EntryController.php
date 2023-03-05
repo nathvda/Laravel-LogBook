@@ -42,7 +42,6 @@ class EntryController extends Controller
 
     {
 
-
         $info =  Entry::create([
             'entry' => $request['entry'],
             'locations_id' => $request['locations_id'],
@@ -53,10 +52,13 @@ class EntryController extends Controller
         $info->save;
         
         foreach($request['category_id'] as $category){
+
+            if(count(EntryCategory::where('entry_id',$info->id)->where('category_id',$category)->get()) === 0){
             EntryCategory::create([
             'entry_id' => $info->id,
             'category_id' => $category
             ]);
+        }
         };
 
         session()->flash('success', 'your entry has been created');
@@ -95,10 +97,14 @@ class EntryController extends Controller
         ]);
 
     foreach($request['category_id'] as $category) 
-    {   EntryCategory::create([
+    { 
+        if(count(EntryCategory::where('entry_id',$id)->where('category_id',$category)->get()) === 0){
+        
+        EntryCategory::create([
             'entry_id' => $id,
             'category_id' => $category
         ]);
+    }
         }
 
         return redirect('./');
