@@ -7,6 +7,8 @@ use App\Http\Controllers\FriendController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ConversationController;
+use App\Http\Controllers\MailController;
+use App\Mail\MailNotify;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,5 +94,7 @@ Route::post('/conversation/{conversation}', [ConversationController::class, 'sto
 Route::get('/new/conversation', [ConversationController::class, 'create'])->middleware('auth');
 
 Route::post('/new/conversation', [ConversationController::class, 'start'])->middleware('auth');
+
+Route::get('/send', [MailController::class, 'index']);
 
 
