@@ -17,7 +17,7 @@
     @if($errors->has('locations_id'))
         <span class="error">{{$errors->first('locations_id')}}</span>
     @endif 
-    <label for="category_id">Categories</label> 
+    <label for="category_id">Categories  <a href="/category/create" class="addlocation">Add a new Category?</a></label> 
     <div class="category__wrapper">
     @foreach($categories as $category)
     <input class="category__input" type="checkbox" id="category-{{$category->id}}" name="category_id[]" value="{{$category->id}}"/>

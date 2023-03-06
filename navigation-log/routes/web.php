@@ -1,14 +1,15 @@
 <?php
 
+use App\Mail\MailNotify;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EntryController;
 use App\Http\Controllers\FriendController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ConversationController;
-use App\Http\Controllers\MailController;
-use App\Mail\MailNotify;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,13 @@ Route::get('/location/create', [LocationController::class, 'create'])->middlewar
 Route::post('/location/create', [LocationController::class, 'store'])->middleware('auth');
 
 Route::get('location/show/{locations}', [LocationController::class, 'show'])->middleware('auth');
+
+/**Categories related routes */
+Route::get('/category/create', [CategoryController::class, 'create'])->middleware('auth');
+
+Route::post('/category/create', [CategoryController::class, 'store'])->middleware('auth');
+
+/** User display routes */
 
 Route::get('user/show/{user}', [UserController::class, 'show'])->middleware('auth');
 

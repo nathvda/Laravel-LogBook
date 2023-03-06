@@ -15,7 +15,7 @@
     {{ $friend->name }}
     </label>
     @endforeach
-    <button type="submit">Start talking!</button>
+    <button class="button__main" type="submit">Start talking!</button>
     </form>
 
 @endsection
