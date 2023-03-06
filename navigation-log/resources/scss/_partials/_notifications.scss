@@ -1,0 +1,27 @@
+.notification__wrapper {
+	background-color: #00324f;
+	border: 1px solid #325462;
+	padding: 0.7rem;
+	border-radius: 0.5rem;
+	position: absolute;
+	bottom: -2rem;
+    display:none;
+    opacity:0;
+    transition:0.3s;
+    font-size: 1rem;
+    transform: translateX(-3rem);
+}
+
+.notification__wrapper.visible{
+	background-color: #00324f;
+	border: 1px solid #325462;
+	padding: 0.7rem;
+	border-radius: 0.5rem;
+	position: absolute;
+	bottom: -4rem;
+	display: block;
+	opacity: 1;
+	transition: 0.3s;
+	width: 14rem;
+	font-size: 1rem;
+}

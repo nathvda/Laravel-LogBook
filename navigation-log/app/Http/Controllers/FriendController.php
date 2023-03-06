@@ -27,6 +27,7 @@ class FriendController extends Controller
 
         Notification::create([
             'user_id' => $id2,
+            'from_user_id' => $id,
             'notificationtype_id' => 1
         ]);
     }
@@ -44,6 +45,7 @@ class FriendController extends Controller
 
         Notification::create([
             'user_id' => $id2,
+            'from_user_id' => $id,
             'notificationtype_id' => 2
         ]);
 

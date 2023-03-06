@@ -24,7 +24,7 @@
         @method('delete')
         <input style="display:none" name="user_id" value="{{auth()->user()->id}}"/>
         <input style="display:none" name="conversation_id" value="{{$conversation->id}}"/>
-        <button type="submit">Leave conversation</button>
+        <button class="button__main" type="submit">Leave conversation</button>
     </form>
     </div>
 
