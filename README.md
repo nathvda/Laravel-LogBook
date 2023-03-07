@@ -21,6 +21,12 @@ My name is Nathalie and I am an Junior Web Developer. I have been learning Larav
 
 ## Versions 
 
+- 2023-03-07
+- - Notification system (display and mark as read)
+- - Images upload for avatars 
+- - Like system (not unlike yet)
+- - Very simple dasbhboard for admin (display and delete categories, users and locations)
+
 - 2023-03-04
 - - Added a very simple messaging system.
 - - Using LiveWire to allow for updates.

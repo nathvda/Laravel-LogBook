@@ -1,0 +1,26 @@
+.dashboard_table {
+	width: 50%;
+	background-color: rgba(0,0,0,0.2);
+	padding: 1rem;
+	margin: auto;
+	border: 1px solid;
+}
+
+.dashboard_table thead th {
+	background-color: black;
+	padding: 0.7rem;
+}
+
+.dashboard_table tbody td{
+    padding:0.7rem;
+}
+
+.dashboard_table button {
+	width: 100%;
+	border: none;
+	background-color: #8a1111;
+	color: white;
+	padding: 0.6em;
+	border-radius: 0.7em;
+    cursor:pointer;
+}
