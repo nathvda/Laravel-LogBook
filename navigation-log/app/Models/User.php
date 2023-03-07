@@ -105,12 +105,17 @@ class User extends Authenticatable
 
     public function notifications(): HasMany
     {
-        return $this->hasMany(Notification::class, 'user_id', 'id');
+        return $this->hasMany(Notification::class, 'user_id', 'id')->where('read', false);
     }
 
     public function notificationfrom(): HasMany
     {
         return $this->hasMany(Notification::class, 'from_user_id', 'id');
+    }
+
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class, 'user_id', 'id');
     }
 
 }

@@ -71,14 +71,26 @@ class UserController extends Controller
      */
     public function update(ModifyUserRequest $request, string $id)
     {
+
+       $image =  $this->uploadImage($request->file('newavatar'), $request['username']);
+
         User::find($id)->update([
             'name' => $request['name'],
             'username' => $request['username'],
-            'avatar' => $request['avatar'],
+            'avatar' => $image,
             'email' => $request['email'],
         ]);
 
         return redirect("./viewprofile/$id")->with('success', 'modification effectuée');
+    }
+
+    public function uploadImage($image, $name){
+
+        $newImageName = time() . '-' . $name . '.' . $image->extension();
+
+        $image->move(public_path('images'), $newImageName);
+
+        return $newImageName;
     }
 
     /**

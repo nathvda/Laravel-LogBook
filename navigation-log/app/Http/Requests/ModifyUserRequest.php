@@ -25,7 +25,7 @@ class ModifyUserRequest extends FormRequest
                 'name' => 'min:5|max:30',
                 'username' => 'alpha_num|min:3|max:255',
                 'email' => 'email',
-                'avatar' => 'required',
+                'newavatar' => 'required|mimes:jpg,png,jpeg'
             ];
     }
 }

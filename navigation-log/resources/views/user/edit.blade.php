@@ -2,7 +2,7 @@
 @section('title', 'Visit profile :' . $user->name )
 @section('content')
 
-<form id="form-body" method="post" action="/edit/{{$user->id}}">
+<form id="form-body" method="post" action="/edit/{{$user->id}}" enctype="multipart/form-data">
     @csrf
     @method('patch')
     <label for="name">Name</label>    
@@ -25,9 +25,9 @@
         <span class="error">{{$errors->first('user_id')}}</span>
     @endif
     <label for="avatar">Avatar</label>
-    <input type="text" id="avatar" name="avatar" value="{{$user->avatar}}"/>
-    @if($errors->has('avatar'))
-        <span class="error">{{$errors->first('avatar')}}</span>
+    <input type="file" id="newavatar" name="newavatar"/>
+    @if($errors->has('newavatar'))
+        <span class="error">{{$errors->first('newavatar')}}</span>
     @endif
     <button type="submit" name="submit">Send modifications</button>
 </form>
