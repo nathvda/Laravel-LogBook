@@ -1,0 +1,17 @@
+.likes {
+	display: flex;
+	gap: 1rem;
+}
+
+.like_button {
+	background-color: transparent;
+	border: none;
+}
+
+.likes svg {
+	fill: #1bffea;
+}
+
+.likes {
+	padding-top: 2rem;
+}

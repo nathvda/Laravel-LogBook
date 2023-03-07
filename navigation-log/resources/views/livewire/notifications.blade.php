@@ -1,4 +1,4 @@
-<div wire:poll.15000ms>
+<div wire:poll.3000ms>
     @if(count($notifications->notifications) != 0)<button id="notification_toggle" class="notification">{{count($notifications->notifications)}}</button>
     <div class="notification__wrapper">
     @foreach($notifications->notifications as $notification)
