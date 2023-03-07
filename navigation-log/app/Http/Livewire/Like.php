@@ -34,7 +34,10 @@ class Like extends Component
                 'from_user_id' => $this->user_id,
                 'notificationtype_id' => 3
             ]);
-        }
+        } else { 
+                \App\Models\Like::where('entry_id', $this->entry_id)->where('user_id', $this->user_id)->delete();
+            }
+        
 
     }
 
