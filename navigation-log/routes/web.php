@@ -110,4 +110,7 @@ Route::get('/send', [MailController::class, 'index']);
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::delete('/category/delete', [CategoryController::class, 'destroy']);
+    Route::delete('/location/delete', [LocationController::class, 'destroy']);
+    Route::delete('/user/delete', [UserController::class, 'delete']);
 });

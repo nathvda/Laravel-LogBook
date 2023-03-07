@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Entry;
+use App\Models\User;
+use App\Models\Category;
 use App\Models\Location;
 use Illuminate\Http\Request;
-use App\Http\Requests\CreateLocationRequest;
-use App\Http\Requests\DeleteLocationRequest;
 
-class LocationController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('dashboard/index', ['categories' => Category::get(), 'locations' => Location::get(), 'users' => User::get()]);
     }
 
     /**
@@ -23,20 +22,15 @@ class LocationController extends Controller
      */
     public function create()
     {
-        return view('/locations/create', ['dropdownLocations' => Location::get()] );
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CreateLocationRequest $request)
+    public function store(Request $request)
     {
-
-        Location::create([
-            'location' => $request['location']
-        ]);
-
-        return redirect('/entry/create');
+        //
     }
 
     /**
@@ -44,7 +38,7 @@ class LocationController extends Controller
      */
     public function show(string $id)
     {
-        return view('/locations/index', ['locations' => Location::find($id), 'dropdownLocations' => Location::get()]);
+        //
     }
 
     /**
@@ -66,10 +60,8 @@ class LocationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(DeleteLocationRequest $request)
+    public function destroy(string $id)
     {
-        Location::find($request['location_id'])->delete();
-
-        return redirect('/dashboard');
+        //
     }
 }

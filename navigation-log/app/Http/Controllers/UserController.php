@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Location;
+use Illuminate\Http\Request;
 use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\DeleteUserRequest;
 use App\Http\Requests\ModifyUserRequest;
 
 class UserController extends Controller
@@ -102,5 +103,12 @@ class UserController extends Controller
         auth()->logout();
 
         return redirect('/')->with('success', 'You successfully deleted your account');
+    }
+
+    public function delete(DeleteUserRequest $request)
+    {
+        User::find($request['user_id'])->delete();
+
+        return redirect('/dashboard');
     }
 }
