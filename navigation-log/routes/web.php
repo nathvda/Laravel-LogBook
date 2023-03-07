@@ -9,6 +9,7 @@ use App\Http\Controllers\FriendController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ConversationController;
 
 /*
@@ -105,4 +106,8 @@ Route::post('/new/conversation', [ConversationController::class, 'start'])->midd
 
 Route::get('/send', [MailController::class, 'index']);
 
+/** Admin area */
 
+Route::middleware(['auth', 'role:admin'])->group(function(){
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+});
