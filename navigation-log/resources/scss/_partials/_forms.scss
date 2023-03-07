@@ -1,0 +1,26 @@
+.category__input {
+	display: none;
+}
+
+.category__input + label {
+	color: #5788a6;
+	border: 1px solid #5788a6;
+	width: fit-content;
+	padding: 1rem;
+	border-radius: 0.7rem;
+}
+
+.category__input:checked + label {
+	color: #00ffb7;
+	border: 1px solid #00ffb7;
+	width: fit-content;
+	padding: 1rem;
+	border-radius: 0.7rem;
+}
+
+.selectable {
+    background-color: #00283f;
+    color: #67a3c1;
+    padding: 1rem;
+    border: 1px solid;
+}

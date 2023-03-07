@@ -92,7 +92,7 @@ Route::post('/accept/{user}/{user2}', [FriendController::class, 'update'])->midd
 
 Route::get('/inbox', [ConversationController::class, 'index'])->middleware('auth');
 
-Route::delete('/inbox', [ConversationController::class, 'leave'])->middleware('auth');
+Route::delete('/leave/{conversation}', [ConversationController::class, 'leave'])->middleware('auth');
 
 /** Conversations */
 

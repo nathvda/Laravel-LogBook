@@ -22,6 +22,26 @@ class DatabaseSeeder extends Seeder
         \App\Models\Conversation::factory(10)->create();
         \App\Models\UserConversation::factory(15)->create();
         \App\Models\Message::factory(150)->create();
+
+        \App\Models\NotificationType::create([
+            "type" => "friend request",
+            "message" => "wants to be your friend"
+        ]);
+
+        \App\Models\NotificationType::create([
+            "type" => "friend accepted",
+            "message" => "accepted your friend request"
+        ]);
+
+        \App\Models\NotificationType::create([
+            "type" => "like",
+            "message" => "liked your post"
+        ]);
+
+        \App\Models\NotificationType::create([
+            "type" => "new conversation",
+            "message" => "added you to a conversation"
+        ]);
     
 
         // \App\Models\User::factory()->create([
