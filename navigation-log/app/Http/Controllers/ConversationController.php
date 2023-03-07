@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Message;
 use App\Models\Location;
 use App\Models\Conversation;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\UserConversation;
 use App\Http\Requests\CreateLeavingRequest;
@@ -51,7 +52,14 @@ class ConversationController extends Controller
             'conversation_id' => $info->id,
             'user_id' => $user
         ]);
-        }
+
+        Notification::create([
+            'user_id' => $user,
+            'from_user_id' => auth()->user()->id,
+            'notificationtype_id' => 4
+        ]
+        );
+     }
 
     return redirect("/conversation/$info->id");
     }
@@ -107,7 +115,7 @@ class ConversationController extends Controller
     }
 
     public function leave(CreateLeavingRequest $request){
-        
+
         UserConversation::where('user_id', $request['user_id'])
         ->where('conversation_id', $request['conversation_id'])->delete();
 
