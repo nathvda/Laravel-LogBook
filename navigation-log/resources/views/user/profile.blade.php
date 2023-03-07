@@ -23,9 +23,13 @@
     </form>
     @endif
     @endif
-        <div class="friends__wrapper">
         
         @if(auth()->user()->id === $user->id)
+            <h4>They invited you</h4>
+            <div class="friends__wrapper">
+            @if($user->friendRequest($user->id)->count() === 0)
+            <div class="nothing__to__show">No request.</div>
+            @endif
             @foreach( $user->friendRequest($user->id)->get() as $friend)
             <a href="/viewprofile/{{$friend->id}}">
             <div class="friendwraps friends__pending">
@@ -49,8 +53,12 @@
         </div>
 
         @endforeach
-
-        <div class="friendwraps friends__waiting">
+        </div>
+        <h4>Sent invites</h4>
+        <div class="friends__wrapper friends__waiting">
+        @if($user->friendsPending($user->id)->count() === 0)
+        <div class="nothing__to__show">You didn't invite anyone yet.</div>
+        @endif
         @foreach( $user->friendsPending($user->id)->get() as $friend)
         <a href="/viewprofile/{{$friend->id}}">
 
@@ -75,11 +83,15 @@
                     @endif
                 </div>
         </a>
-
         @endforeach
         </div>
         @endif
 
+        <h4>{{$user->name}}'s friends</h4>
+            <div class="friends__wrapper">
+            @if($user->friendsaccepted()->count() === 0)
+            <div class="nothing__to__show">You don't have any friend yet.</div>
+        @endif
             @foreach($user->friendsaccepted() as $friend)
             <a href="/viewprofile/{{$friend->id}}">
                 <div class="friendbox">
@@ -92,9 +104,10 @@
                     </form>
                     @endif
             </a>
+
         </div>
         @endforeach
-    </div>
+        </div>
     @if(auth()->user()->id === $user->id)
     <a href="/edit/{{$user->id}}" title="éditer mon profil"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16">
             <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z" />

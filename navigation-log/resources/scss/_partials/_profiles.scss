@@ -52,3 +52,11 @@
 	align-items: center;
 	width: 11rem;
 }
+
+.nothing__to__show {
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.9rem;
+    border-radius: 0.3rem;
+    background-color: rgba(0,0,0,0.1);
+    color: rgba(255,255,255,0.4);
+}

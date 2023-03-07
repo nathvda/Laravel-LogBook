@@ -1,7 +1,28 @@
+h3.main__title {
+    text-align: center;
+    font-size: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 0.6rem;
+    padding: 0.8rem;
+    margin-top: 0.9rem;
+}
+
 .conversation__wrapper {
 	display: flex;
 	flex-direction: column;
 	place-items: center center;
+}
+
+.message__infos {
+    display: flex;
+    flex-direction: column;
+    gap: $gaps;
+}
+
+.message__date {
+    font-size: 0.7rem;
+    opacity: 0.5;
+    align-self: flex-end;
 }
 
 .button__main {
