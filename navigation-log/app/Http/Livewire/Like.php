@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Entry;
 use Livewire\Component;
 use App\Models\Notification;
 
@@ -13,7 +14,8 @@ class Like extends Component
 
     public function mount($entry){
 
-        $this->entry = $entry;
+        $this->entry = Entry::find($entry->id);
+        
     }
 
     public function liked($user, $entry){
@@ -34,7 +36,6 @@ class Like extends Component
             ]);
         }
 
-     
     }
 
 

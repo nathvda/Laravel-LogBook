@@ -18,7 +18,8 @@ class Entry extends Model
     protected $with = [
         'location',
         'user',
-        'category'
+        'category',
+        'likes'
     ];
 
     protected $table = 'entries';
@@ -50,6 +51,6 @@ class Entry extends Model
 
     public function likes(): HasMany
     {
-        return $this->hasMany(Like::class, 'user_id', 'id');
+        return $this->hasMany(Like::class, 'entry_id', 'id');
     }
 }

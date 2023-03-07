@@ -52,9 +52,7 @@
             <div class="category__button">{{$cat->name}}</div>
             @endforeach
         </div>
-        <div class="likes">
-            @livewire('like', ['entry' => $entry]){{$entry->likes->count()}}
-        </div>
+            @livewire('like', ['entry' => $entry])
 
     </div>
 
