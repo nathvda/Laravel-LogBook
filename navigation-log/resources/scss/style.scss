@@ -10,6 +10,7 @@
 @import './_partials/dashboard';
 @import './_partials/buttons';
 @import './_partials/forms';
+@import './_partials/404';
 
 *{
     box-sizing:border-box;
@@ -115,7 +116,7 @@ body{
 }
 
 .createNew {
-    @include flexed(row, center, center);
+    @include flexed(row, center);
 	position: fixed;
 	right: 2rem;
 	bottom: 2rem;
