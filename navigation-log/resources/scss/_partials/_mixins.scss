@@ -5,10 +5,15 @@
     }
 }
 
-@mixin flexed($direction, $justify, $align, $gap){
+@mixin flexed($direction: row, $justify: flex-start , $align : flex-start, $gap : $gaps){
     display:flex;
     flex-direction:$direction;
     justify-content:$justify;
     align-items:$justify;
     gap:$gap;
+}
+
+@mixin absolute($top, $right, $bottom, $left){
+    position:absolute;
+    inset:$top $right $bottom $left;
 }
