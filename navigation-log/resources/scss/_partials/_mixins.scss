@@ -1,0 +1,14 @@
+@mixin fancy_titles($size){
+    font: {
+        size:$size;
+        family:"Playfair Display";
+    }
+}
+
+@mixin flexed($direction, $justify, $align, $gap){
+    display:flex;
+    flex-direction:$direction;
+    justify-content:$justify;
+    align-items:$justify;
+    gap:$gap;
+}

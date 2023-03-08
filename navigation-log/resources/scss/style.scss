@@ -1,4 +1,5 @@
 @import './_partials/variables';
+@import './_partials/mixins';
 @import './_partials/navigation';
 @import './_partials/profiles';
 @import './_partials/friends';
@@ -22,12 +23,12 @@ html,body{
 }
 
 body{
+
+    @include flexed(column,space-between,flex-start, $gaps);
+
     background-color:#00324f;
     color: rgb(103, 163, 193);
     font-family:inter;
-    display:flex;
-    flex-direction:column;
-    justify-content: space-between;
     height:100%;
 
     a{
@@ -35,10 +36,8 @@ body{
     }  
 
     main {
+        @include flexed(column,space-evenly,flex-start, $gaps);
         flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
         padding: 1rem;
     }
 

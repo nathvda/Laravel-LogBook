@@ -66,14 +66,30 @@ class UserTest extends TestCase
             'password' => 'randomstuff'
         ]);
 
-        $response->assertRedirect('/redirect');
+        $response->assertSessionHasErrors('email');
     }
 
-    public function test_seeders(){
+    public function test_wont_stores_new_user_if_empty_fields(){
 
-        $reponse = $this->seed();
+        $response = $this->post('/register', [
+            'name' => '',
+            'email' => '',
+            'username' => '',
+            'password' => ''
+        ]);
+
+        $response->assertSessionHasErrors('name');
+        $response->assertSessionHasErrors('email');
+        $response->assertSessionHasErrors('username');
+        $response->assertSessionHasErrors('password');
+
+    }
+
+    // public function test_seeders(){
+
+    //     $reponse = $this->seed();
         
-        $reponse->assertTrue(true);
-    }
+    //     $reponse->assertTrue(true);
+    // }
 
 }

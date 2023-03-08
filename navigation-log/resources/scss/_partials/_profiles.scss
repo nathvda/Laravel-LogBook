@@ -29,8 +29,12 @@
 }
 
 .maincontent h3 {
-	font-family: 'PlayFair Display';
-	font-size: 3rem;
+	@include fancy_titles(3rem);
+}
+
+
+.maincontent h4{
+    @include fancy_titles(1rem);
 }
 
 .maincontent {

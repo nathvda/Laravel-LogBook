@@ -37,10 +37,6 @@
         <button class="button--dark" type="submit">Log Out</button>
     </form>
 
-
-
-
-
     </div>@endauth
 </header>
         <main>
