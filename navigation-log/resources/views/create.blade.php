@@ -45,7 +45,7 @@
 @if($errors->has('entry'))
         <span class="error">{{$errors->first('entry')}}</span>
     @endif
-<button id="sendform" type="submit" value="submit">Envoyer</button>
+<button id="sendform" class="button--general" type="submit" value="submit">Envoyer</button>
 
 </form>
 

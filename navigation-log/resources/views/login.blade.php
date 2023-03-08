@@ -1,7 +1,7 @@
 @extends('app')
 @section('title', 'login page')
 @section('content')
-<a href="/" class="back">← Back</a>
+<a href="{{ url()->previous() }}" class="back">← Back</a>
 <form id="form-body" method="post" action="/login">
     @csrf
     <label for="email">email</label>

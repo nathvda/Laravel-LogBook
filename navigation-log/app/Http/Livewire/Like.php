@@ -34,16 +34,17 @@ class Like extends Component
                 'from_user_id' => $this->user_id,
                 'notificationtype_id' => 3
             ]);
+
         } else { 
                 \App\Models\Like::where('entry_id', $this->entry_id)->where('user_id', $this->user_id)->delete();
             }
         
-
+            $this->entry = Entry::find($this->entry_id);
     }
 
 
     public function render()
     {
-        return view('livewire.like', ['entry' => $this->entry]);
+        return view('livewire.like', ['entry' => $this->entry, 'liked' => \App\Models\Like::where('entry_id', $this->entry->id)->where('user_id', auth()->user()->id)->count()]);
     }
 }

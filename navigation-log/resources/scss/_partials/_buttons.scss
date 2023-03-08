@@ -1,0 +1,65 @@
+.button--general {
+        border-image: linear-gradient(45deg, blue, orange) 26;
+        border: 1px solid;
+        border: none;
+        padding: 1em;
+        border-radius: 1rem;
+        background-color: rgb(0, 40, 63);
+        color: white;
+        box-shadow: 0.3rem 0.3rem 10.8px rgba(0,0,0,0.1);
+        position: relative;
+        transition: 0.5s;
+}
+
+.button--general::before {
+	content: "jkjlkj";
+	position: absolute;
+	inset: -2px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: linear-gradient(45deg, #00324f, #1f85bf, #00324f);
+	z-index: 0;
+	transition: 0.2s;
+	z-index: -1;
+	border-radius: 1rem;
+}
+
+.button--general:hover::before {
+	background-size: 200%;
+	background-position: -8rem;
+	transition: 0.5s;
+}
+
+input::file-selector-button{
+    border-image: linear-gradient(45deg, blue, orange) 26;
+    border: 1px solid;
+    border: none;
+    padding: 1em;
+    border-radius: 1rem;
+    background-color: rgb(0, 40, 63);
+    color: white;
+    box-shadow: 0.3rem 0.3rem 10.8px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+input::file-selector-button:hover::before {
+	background-size: 200%;
+	background-position: -8rem;
+	transition: 0.5s;
+}
+
+
+input::file-selector-button::before {
+	content: "jkjlkj";
+	position: absolute;
+	inset: -2px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: linear-gradient(45deg, #00324f, #1f85bf, #00324f);
+	z-index: 0;
+	transition: 0.2s;
+	z-index: -1;
+	border-radius: 1rem;
+}
