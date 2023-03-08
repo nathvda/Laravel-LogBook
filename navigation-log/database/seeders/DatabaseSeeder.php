@@ -15,13 +15,30 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\Category::factory(5)->create();
         \App\Models\User::factory(5)->create();
-        \App\Models\Location::factory(5)->create();
+
+        \App\Models\Location::create([
+            'location' => 'Main deck'
+        ]);
+        \App\Models\Location::create([
+            'location' => 'First deck'
+        ]);
+        \App\Models\Location::create([
+            'location' => 'Second deck'
+        ]);
+        \App\Models\Location::create([
+            'location' => 'Third deck'
+        ]);
+        \App\Models\Location::create([
+            'location' => 'Captain\'s Room deck'
+        ]);
+
         \App\Models\Entry::factory(5)->create();
         \App\Models\EntryCategory::factory(5)->create();
         \App\Models\Friend::factory(10)->create();
         \App\Models\Conversation::factory(10)->create();
         \App\Models\UserConversation::factory(15)->create();
         \App\Models\Message::factory(150)->create();
+
 
         \App\Models\NotificationType::create([
             "type" => "friend request",

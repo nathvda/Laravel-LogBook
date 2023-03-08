@@ -16,4 +16,19 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_the_login_route_works(): void
+    {
+        $response = $this->get('/login');
+
+        $response->assertStatus(200);
+    }
+
+    public function test_the_register_route_works(): void
+    {
+        $response = $this->get('/register');
+
+        $response->assertStatus(200);
+    }
+
 }

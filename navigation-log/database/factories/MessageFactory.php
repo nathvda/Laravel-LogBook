@@ -18,7 +18,7 @@ class messageFactory extends Factory
     {
         return [
             'user_id' => fake()->numberBetween(1,5),
-            'conversation_id' => fake()->numberBetween(1,15),
+            'conversation_id' => fake()->numberBetween(1,10),
             'content' => fake()->text(2000)
             
         ];
