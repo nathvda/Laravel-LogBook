@@ -343,6 +343,11 @@ header {
 
 
 @media screen AND (min-width:800px){
+
+    #form-body{
+        width:40%;
+    }
+
     .entry__content{
         flex-direction:row;
 

@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', 'create a new entry')
+@section('title', 'Create a new entry')
 
 @section('content')
 <a href="/" class="back">← Back</a>
