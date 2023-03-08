@@ -6,10 +6,7 @@
 }
 
 .avatar--nav {
-	width: 2rem;
-	height: 2rem;
-	border-radius: 2rem;
-	object-fit: cover;
+	@include avatar(2rem);
 }
 
 .logged_as {
@@ -25,14 +22,14 @@
 
 .notification{
 	width: 1.2rem;
-	background-color: red;
+	background-color: #FF0000;
 	border-radius: 1.2rem;
 	padding: 0.5rem;
 	display: flex;
 	text-align: center;
 	line-height: 1;
 	height: 1.2rem;
-	color:white;
+	color:$whites;
 	font-size: 0.7rem;
 	justify-content: center;
 	align-items: center;

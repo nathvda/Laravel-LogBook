@@ -7,7 +7,7 @@
 }
 
 .dashboard_table thead th {
-	background-color: black;
+	background-color: $blacks;
 	padding: 0.7rem;
 }
 
@@ -18,8 +18,8 @@
 .dashboard_table button {
 	width: 100%;
 	border: none;
-	background-color: #8a1111;
-	color: white;
+	background-color: $warning;
+	color: $whites;
 	padding: 0.6em;
 	border-radius: 0.7em;
     cursor:pointer;

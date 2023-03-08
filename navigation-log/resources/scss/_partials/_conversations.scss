@@ -32,7 +32,7 @@ h3.main__title {
 	border-radius: 0.7rem;
 	border: 1px solid #20526F;
 	text-align: center;
-	color:white;
+	color:$whites;
 }
 
 .conversation__unique {
@@ -61,7 +61,7 @@ h3.main__title {
 }
 
 .conversation_users a:hover {
-	color: white;
+	color: $whites;
 }
 
 .friend__conversation {

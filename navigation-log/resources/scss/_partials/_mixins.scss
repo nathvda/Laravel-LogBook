@@ -17,3 +17,10 @@
     position:absolute;
     inset:$top $right $bottom $left;
 }
+
+@mixin avatar($size){
+    border-radius:$size * 2;
+    height: $size;
+    width: $size;
+    object-fit:cover;
+}

@@ -1,5 +1,5 @@
 .notification__wrapper {
-	background-color: #00324f;
+	background-color: $main-color;
 	border: 1px solid #325462;
 	padding: 0.7rem;
 	border-radius: 0.5rem;
@@ -12,7 +12,7 @@
 }
 
 .notification__wrapper.visible{
-	background-color: #00324f;
+	background-color: $main-color;
 	border: 1px solid #325462;
 	padding: 0.7rem;
 	border-radius: 0.5rem;

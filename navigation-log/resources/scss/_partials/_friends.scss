@@ -23,8 +23,8 @@
 }
 
 .friendbox button {
-	background-color: crimson;
-	color: white;
+	background-color: $warning;
+	color: $whites;
 	padding: 0.5rem;
 	border: none;
 	border-radius: 0.6rem;
@@ -33,7 +33,7 @@
 
 .friendbox button.button--accept {
 	background-color: deepskyblue;
-	color: white;
+	color: $whites;
 	padding: 0.5rem;
 	border: none;
 	border-radius: 0.6rem;

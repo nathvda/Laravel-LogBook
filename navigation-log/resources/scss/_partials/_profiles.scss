@@ -3,10 +3,7 @@
 	aspect-ratio: 1/1;
 
     img {
-        width: 9rem;
-        object-fit: cover;
-        height: 9rem;
-        border-radius:18rem;
+        @include avatar(9rem);
     }
 }
 
@@ -38,22 +35,16 @@
 }
 
 .maincontent {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-    gap:1rem;
+    @include flexed(column,center,center);
 }
 
 .deleteAccount {
+    @include flexed(row,space-between,center);
 	background-color: #00000030;
-	color: #ff2a2a;
+	color: $warning;
 	padding: 1rem;
-	border: 1px solid red;
+	border: 1px solid $warning;
 	border-radius: 0.5rem;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
 	width: 11rem;
 }
 

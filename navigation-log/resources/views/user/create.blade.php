@@ -24,6 +24,6 @@
                 @if($errors->has('password'))
                     <span class="error">{{$errors->first('password')}}</span>
                 @endif
-            <button type="submit" value="submit" name="submit">Add Location</button>
+            <button type="submit" value="submit" name="submit">Create my account</button>
         </form>
 @endsection
