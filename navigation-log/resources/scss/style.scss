@@ -1,15 +1,15 @@
-@import './_partials/variables';
-@import './_partials/mixins';
-@import './_partials/navigation';
+@import './_partials/abstracts/variables';
+@import './_partials/abstracts/mixins';
+@import './_partials/components/navigation';
 @import './_partials/profiles';
 @import './_partials/friends';
 @import './_partials/conversations';
 @import './_partials/messages';
-@import './_partials/notifications';
-@import './_partials/likes';
+@import './_partials/components/notifications';
+@import './_partials/components/likes';
 @import './_partials/dashboard';
-@import './_partials/buttons';
-@import './_partials/forms';
+@import './_partials/components/buttons';
+@import './_partials/components/forms';
 @import './_partials/404';
 
 *{
